@@ -1,5 +1,10 @@
+import java.util.Arrays;
+
 public class SubTask6 {
     public static void main(String[] args) {
+
+        System.out.println("SubTask6");
+        System.out.println("args: " + Arrays.toString(args));
 
         String literalValue = "ax";
         System.out.printf("findColumnNumberByLiteralValue(\"%s\")\n", literalValue);
@@ -9,7 +14,7 @@ public class SubTask6 {
         System.out.printf("findLiteralValueByColumnNumber(%d)\n", columnNumber);
         System.out.println("Result: " + findLiteralValueByColumnNumber(columnNumber));
 
-        literalValue = "A";
+        literalValue = "AB";
         System.out.printf("findRightColumnNumberByLiteralValue(\"%s\")\n", literalValue);
         System.out.println("Result: " + findRightColumnNumberByLiteralValue(literalValue));
     }
