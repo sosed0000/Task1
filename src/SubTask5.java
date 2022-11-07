@@ -1,17 +1,18 @@
 public class SubTask5 {
     public static void main(String[] args) {
 
-        args = new  String[] {"10"};
-
         int n = Integer.parseInt(args[0]);
 
-        for (int i = 2; i <= n; i++) {
+        StringBuilder sb = new StringBuilder("");
 
-            for (int j = 2; j <= i / 2; j++) {
-                System.out.println(i + " "  + j + " " + i % j);
+        for (int i = 2; i <= n; i++) {
+            if (i == 2 || i == 3) sb.append(i).append(" ");
+
+            for (int j = 2; j <= (i / 2); j++) {
                 if (i % j == 0) break;
-                if (j == i) System.out.println(i);
+                if (j == (i / 2) ) sb.append(i).append(" ");
             }
         }
+        System.out.println(sb);
     }
 }

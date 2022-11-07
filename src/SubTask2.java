@@ -1,9 +1,7 @@
 public class SubTask2 {
     public static void main(String[] args) {
 
-        args = new String[]{"12", "36"};
-
-        StringBuffer resultRaw = new StringBuffer();
+        StringBuilder resultRaw = new StringBuilder();
 
         for (String str:
              args) {
