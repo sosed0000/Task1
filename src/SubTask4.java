@@ -5,7 +5,14 @@ public class SubTask4 {
 
         System.out.println("SubTask4");
         System.out.println("args: " + Arrays.toString(args));
-        int x = Integer.parseInt(args[0]);
+        int x;
+        try {
+            if (args.length != 1) throw new Exception();
+            x = Integer.parseInt(args[0]);
+        } catch (Exception e) {
+            System.out.println("Invalid arguments! Single integer expected.");
+            throw new RuntimeException(e);
+        }
         int sum = 0;
         while (x != 0) {
             sum += (x % 10);

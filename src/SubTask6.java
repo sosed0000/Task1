@@ -20,6 +20,9 @@ public class SubTask6 {
     }
 
     public static int findColumnNumberByLiteralValue(String literalValue) {
+        if (literalValue == null || literalValue.isEmpty() || !literalValue.matches("^[a-zA-Z]*$")) {
+            throw new IllegalArgumentException ("Invalid literal value! [A-Z] expected.");
+        }
         char[] chars = literalValue.toUpperCase().toCharArray();
         int length = chars.length;
         int columnNumber = 0;
@@ -40,7 +43,7 @@ public class SubTask6 {
     }
 
     public static int findRightColumnNumberByLiteralValue(String literalValue) {
-       return findColumnNumberByLiteralValue(literalValue) + 1;
+        return findColumnNumberByLiteralValue(literalValue) + 1;
     }
 
 }
