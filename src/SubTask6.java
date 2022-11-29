@@ -10,18 +10,18 @@ public class SubTask6 {
         System.out.printf("findColumnNumberByLiteralValue(\"%s\")\n", literalValue);
         System.out.println("Result: " + findColumnNumberByLiteralValue(literalValue));
 
-        int columnNumber = 42;
+        int columnNumber = 806;
         System.out.printf("findLiteralValueByColumnNumber(%d)\n", columnNumber);
         System.out.println("Result: " + findLiteralValueByColumnNumber(columnNumber));
 
-        literalValue = "AB";
+        literalValue = "ADZ";
         System.out.printf("findRightColumnNumberByLiteralValue(\"%s\")\n", literalValue);
         System.out.println("Result: " + findRightColumnNumberByLiteralValue(literalValue));
     }
 
     public static int findColumnNumberByLiteralValue(String literalValue) {
         if (literalValue == null || literalValue.isEmpty() || !literalValue.matches("^[a-zA-Z]*$")) {
-            throw new IllegalArgumentException ("Invalid literal value! [A-Z] expected.");
+            throw new IllegalArgumentException("Invalid literal value! [A-Z] expected.");
         }
         char[] chars = literalValue.toUpperCase().toCharArray();
         int length = chars.length;
@@ -34,11 +34,15 @@ public class SubTask6 {
 
     public static String findLiteralValueByColumnNumber(int columnNumber) {
         StringBuilder literalValue = new StringBuilder();
-        while (columnNumber / 26 > 0) {
-            literalValue.append((char) ((columnNumber % 26) + 64));
-            columnNumber /= 26;
+        while (columnNumber > 0) {
+            if ((columnNumber % 26) == 0) {
+                literalValue.append("Z");
+                columnNumber = columnNumber / 26 - 1;
+            } else {
+                literalValue.append((char) ((columnNumber % 26) + 64));
+                columnNumber /= 26;
+            }
         }
-        literalValue.append((char) (columnNumber + 64));
         return literalValue.reverse().toString();
     }
 
